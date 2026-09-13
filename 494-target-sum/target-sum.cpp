@@ -11,7 +11,18 @@ public:
         int sum = accumulate(nums.begin(),nums.end(),0);
         if(sum+diff < 0 || (sum+diff)%2 != 0)return 0;
         int target = (sum+diff)/2;
-        vector<vector<int>>dp(n+1,vector<int>(target+1,-1));
-        return solve(nums,n,target,dp);
+        vector<vector<int>>dp(n+1,vector<int>(target+1,0));
+        for(int i = 0; i <= n; i++){
+            dp[i][0] = 1;
+        }
+        for(int i = 1; i <= n; i++){
+            for(int j = 0; j <= target; j++){
+                dp[i][j] = dp[i-1][j];
+                if(nums[i-1] <= j){
+                    dp[i][j] += dp[i-1][j-nums[i-1]];
+                }
+            }
+        }
+        return dp[n][target];
     }
 };
