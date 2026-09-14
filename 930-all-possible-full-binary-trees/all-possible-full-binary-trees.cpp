@@ -11,9 +11,11 @@
  */
 class Solution {
 public:
+    unordered_map<int,vector<TreeNode*>>dp;
     vector<TreeNode*> allPossibleFBT(int n) {
        if(n%2 == 0)return {};
        if(n == 1)return {new TreeNode(0)};
+       if(dp.count(n))return dp[n];
        vector<TreeNode*>ans;
         for(int i = 1; i < n; i+=2){
             int leftNodes = i;
@@ -33,6 +35,6 @@ public:
                 }
             }
         }
-        return ans;
+        return dp[n] = ans;
     }
 };
