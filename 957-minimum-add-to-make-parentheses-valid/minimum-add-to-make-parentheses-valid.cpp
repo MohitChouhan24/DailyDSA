@@ -15,6 +15,6 @@ public:
                 balance = 0;
             }
         }
-        return ans + abs(balance);
-    }
+        return ans + balance;
+    } 
 };
