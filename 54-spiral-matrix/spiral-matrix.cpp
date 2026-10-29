@@ -3,13 +3,13 @@ public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int rows = matrix.size();
         int cols = matrix[0].size();
-        int total = rows * cols;
+        int total = rows*cols;
         int startingRow = 0;
         int startingCol = 0;
         int endingRow = rows-1;
         int endingCol = cols-1;
-        vector<int>ans;
         int count = 0;
+        vector<int>ans;
         while(count < total){
             for(int i = startingCol; i <= endingCol && count < total; i++){
                 ans.push_back(matrix[startingRow][i]);
