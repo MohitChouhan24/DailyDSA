@@ -1,24 +1,24 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        bool zeroinfirstcolumn = false;
-        for(int row = 0; row < matrix.size(); row++){
-            if(matrix[row][0] == 0)zeroinfirstcolumn = true;
-            for(int col = 1; col < matrix[0].size(); col++){
-                if(matrix[row][col] == 0){
-                    matrix[row][0] = 0;
-                    matrix[0][col] = 0;
+        bool zeroinfirstcol = false;
+        for(int i=0; i < matrix.size(); i++){
+            if(matrix[i][0] == 0)zeroinfirstcol = true;
+            for(int j = 1; j < matrix[0].size(); j++){
+                if(matrix[i][j] == 0){
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
                 }
             }
         }
-        for(int row = matrix.size()-1; row >= 0; row--){
-            for(int col = matrix[0].size()-1; col >= 1; col--){
-                if(matrix[row][0] == 0 | matrix[0][col] == 0){
-                    matrix[row][col] = 0;
+        for(int i = matrix.size()-1; i >=0; i--){
+            for(int j = matrix[0].size()-1; j >= 1; j--){
+                if(matrix[i][0] == 0|| matrix[0][j] == 0){
+                    matrix[i][j] = 0;
                 }
             }
-            if(zeroinfirstcolumn){
-                matrix[row][0] = 0;
+            if(zeroinfirstcol){
+                matrix[i][0] = 0;
             }
         }
     }
