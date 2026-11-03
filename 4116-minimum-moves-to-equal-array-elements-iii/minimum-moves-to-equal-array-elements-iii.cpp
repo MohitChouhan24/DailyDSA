@@ -7,7 +7,7 @@ public:
         }
         int ans = 0;
         for(int n : nums){
-            ans += abs(n-m);
+            ans += m-n;
         }
         return ans;
     }
