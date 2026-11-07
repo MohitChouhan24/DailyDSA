@@ -5,7 +5,7 @@ public:
         vector<int>prefix(n,0);
         prefix[0] = nums[0];
         for(int i = 1; i < n; i++){
-            prefix[i] = prefix[i-1] + nums[i];
+            prefix[i] = prefix[i-1]+nums[i];
         }
         unordered_map<int,int>map;
         int ans = 0;
